@@ -1,0 +1,29 @@
+{
+  "name": "jwk-decode",
+  "version": "1.0.0",
+  "description": "Small app for generating a PEM file from a JWK file or decoding tokens from a JWK file",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "./node_modules/.bin/eslint index.js",
+    "test": "npm run eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thepatrik/jwk-decode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thepatrik/jwk-decode/issues"
+  },
+  "homepage": "https://github.com/thepatrik/jwk-decode#readme",
+  "dependencies": {
+    "jsonwebtoken": "^8.2.1",
+    "jwk-to-pem": "^2.0.0",
+    "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}
