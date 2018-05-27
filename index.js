@@ -24,17 +24,32 @@ function main(file, output, token) {
         const jwk = JSON.parse(res.toString());
         let pem = jwkToPem(jwk);
         if (output) {
-            console.log("Writing to ", output + "...");
+            console.log("Writing PEM file to", output + "...");
             writeFileAsync(output, pem).then(() => {
                 console.log("Done");
             }).catch(err => {
                 console.log("Got error", err);
             });
-        } else console.log(pem);
+        } else {
+            console.log(pem);
+        }
 
         if (token) {
-            let payload = jwt.decode(token, pem);
-            console.log(payload);
+            decodeAsync(token, pem).then(payload => {
+                console.log(payload);
+            });
         }
+    });
+}
+
+function decodeAsync(token, pem) {
+    return new Promise(resolve => {
+        jwt.verify(token, pem, (err, decoded) => {
+            if (err) console.log("Token could not be verified:", err.message);
+            if (decoded) return resolve(decoded);
+
+            let payload = jwt.decode(token);
+            resolve(payload);
+        });
     });
 }
