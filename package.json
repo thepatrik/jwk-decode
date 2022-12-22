@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/thepatrik/jwk-decode#readme",
   "dependencies": {
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jwk-to-pem": "^2.0.1",
     "yargs": "^13.3.0"
   },
